@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CalendarModule } from 'angular-calendar';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
@@ -16,6 +19,8 @@ import { NavigationComponent } from './shared/navigation.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule, 
+    CalendarModule.forRoot(),
     CollapseModule.forRoot(),
     RouterModule.forRoot([
       {path: 'calendar', component: CalendarComponent},
