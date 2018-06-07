@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-md fixed-top"
+     id="navbar-thats-collapse"
+     [ngClass]="{'collapsed': isNavCollapsed}">
+     
+  <div class="top-nav">
+      <div class="navbar-brand">
+          St. Vincent de Paul
+      </div>
+  <button class="navbar-toggler navbar-right"
+        type="button"
+        (click)="toggleNavCollapse()">
+    <span class="fas fa-bars"></span>      
+  </button>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div [collapse]="isNavCollapsed"
+       class="collapse navbar-collapse">
+     <ul class="nav navbar-nav mr-auto navbar-right">
+      <li class="nav-item"
+          *ngFor="let menu of menuOptions">
+        <span *ngIf="menu.pages?.length > 1"
+              dropdown>
+          <a dropdownToggle
+             (click)="false"
+             class="menu-item"
+             [ngClass]="{'active':domain==menu.id}">{{menu.name}}
+            <ul *dropdownMenu 
+                class="dropdown-menu"
+                role="menu">
+              <li class="dropdown-line"
+                  *ngFor="let pageMenu of menu.pages">
+                <a class="dropdown-item"
+                   (click)="closeNavCollapse()"
+                   [routerLink]="[pageMenu.url]">{{pageMenu.name}}</a>
+              </li>
+            </ul>
+            </a>
+        </span>
+        <a [routerLink]="[menu.pages[0]?.url]"
+           *ngIf="menu.pages.length == 1"
+           class="menu-item"
+           [ngClass]="{'active':domain==menu.id}"
+           (click)="closeNavCollapse()">{{menu.name}}</a>
+      </li>
+      <!-- nav-item -->
+    </ul>
+    <!-- navbar-nav -->
+  </div>
+<!-- /.navbar-collapse -->
+</div>
+</nav>
+
+<nav class="navbar nav-upper navbar-expand-md"
+     id="navbar-thats-top">
+    
+  <div class="top-nav">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div [collapse]="isNavCollapsed"
+       class="collapse navbar-collapse">
+     <ul class="nav navbar-nav mr-auto navbar-right">
+      <li class="nav-item"
+          *ngFor="let menu of menuOptions">
+        <a [routerLink]="[menu.pages[0]?.url]"
+           class="menu-item"
+           [ngClass]="{'active':domain==menu.id}"
+           (click)="closeNavCollapse()">{{menu.name}}</a>
+      </li>
+    </ul>
+  </div>
+<!-- /.navbar-collapse -->
+</div>
+</nav>
+<nav class="navbar navbar-expand-md"
+     id="navbar-thats-bottom">
+  <div id="lower-nav">
+    <ul class="nav navbar-nav mr-auto navbar-right"
+        *ngIf="menu.pages.length > 1">
+      <li class="nav-item"
+          *ngFor="let menuPage of menu.pages">
+        <a [routerLink]="[menuPage?.url]"
+           class="menu-item"
+           [ngClass]="{'active':page==menuPage.id}">{{menuPage.name}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.app-links .link-list{
+    float: right;
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+} 
+.app-links .link-list .link-item{
+    text-decoration: none;
+    display: inline;
+    margin: 0 0.5em;
+    font-family: 'Roboto', sans-serif;
+} 
+markdown{
+    position: relative;
+    left: 1em;
+}
+markdown img{
+    max-width: 600px;
+}
+@media only screen and (max-width: 760px) {
+    .app-links .link-list{
+        top:3.2em;
+    } 
+}
+@media only screen and (max-width: 600px) {
+    markdown img{
+        max-width: 90%;
+    }
+}

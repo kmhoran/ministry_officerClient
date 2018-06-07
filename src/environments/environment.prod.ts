@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  svpdLogo: '/static/public/images/svdp_logo.jpg'
 };
