@@ -13,8 +13,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NavigationComponent } from './shared/navigation.component';
-import { MonthCalendarComponent } from './calendar/month-calendar.component';
-import { DatePickerComponent } from './calendar/date-picker.component';
+import { MonthCalendarComponent } from './calendar/calendar-tool/month-calendar.component';
+import { DatePickerComponent } from './calendar/calendar-tool/date-picker.component';
+import { EditEventComponent } from './calendar/calendar-tool/edit-event.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DatePickerComponent } from './calendar/date-picker.component';
     NavigationComponent,
     MonthCalendarComponent,
     DatePickerComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule,

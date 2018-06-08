@@ -1,0 +1,10 @@
+.date-picker{
+  font-size: 0.5em !important;
+}
+.date-picker .form-control{ 
+  font-size: 1.5em;
+}
+
+.form-group {
+    width: 100%;
+  }

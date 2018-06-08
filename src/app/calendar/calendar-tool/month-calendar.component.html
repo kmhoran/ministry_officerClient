@@ -97,7 +97,12 @@
       </button>
       <div class="clearfix"></div>
     </h3>
-    
+    <br/>
+    <app-edit-event
+        *ngFor="let event of events; let index = index"
+        title="event[0].title"
+        start="event[0].start"
+        end="event[0].end"></app-edit-event>
     <table class="table table-bordered">
     
       <thead>

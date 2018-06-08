@@ -1,0 +1,41 @@
+
+<div class="panel editor">
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="title">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <app-date-picker
+              [(ngModel)]="start"
+              placeholder="Not set">
+            </app-date-picker>
+          </td>
+          <td>
+            <app-date-picker
+              [(ngModel)]="end"
+              placeholder="Not set">
+            </app-date-picker>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <!-- <button
+        class="btn btn-danger"
+        (click)="events.splice(index, 1); refresh.next()">
+        Delete
+      </button> -->
+    </div>
+</div>
