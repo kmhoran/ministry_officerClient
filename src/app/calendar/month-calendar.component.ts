@@ -13,6 +13,8 @@ import {
   endOfMonth,
   isSameDay,
   isSameMonth,
+  startOfHour,
+  endOfHour,
   addHours
 } from 'date-fns';
 import { Subject } from 'rxjs';
@@ -22,6 +24,7 @@ import {
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
 import { modalConfigDefaults } from 'ngx-bootstrap/modal/modal-options.class';
+import { DATE_TIME_PICKER_CONTROL_VALUE_ACCESSOR } from './date-picker.component';
 
 const colors: any = {
   red: {
@@ -38,6 +41,8 @@ const colors: any = {
   }
 };
 
+const today = new Date();
+
 @Component({
   selector: 'app-month-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,7 +52,7 @@ const colors: any = {
 export class MonthCalendarComponent implements OnInit {
   // @ViewChild('modalContent') modalContent: TemplateRef<any>
 
-  view: string = 'month';
+  view = 'month';
 
   viewDate: Date = new Date();
 
@@ -59,7 +64,7 @@ export class MonthCalendarComponent implements OnInit {
       }
     },
     {
-      label: 'i class="fa fa-fw fa-times"></i>',
+      label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.events = this.events.filter(iEvent => iEvent !== event );
         this.handleEvent('Deleted', event);
@@ -71,15 +76,15 @@ export class MonthCalendarComponent implements OnInit {
 
   events: CalendarEvent[] = [
     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
+      start: startOfHour(today),
+      end: endOfHour(today),
       title: 'sample event',
       color: colors.blue,
       actions: this.actions
     }
   ];
 
-  activeDayIsOpen: boolean = true;
+  activeDayIsOpen = true;
 
   constructor() { }
   ngOnInit() { }
@@ -116,8 +121,8 @@ export class MonthCalendarComponent implements OnInit {
   addEvent(): void {
     this.events.push({
       title: 'New Event',
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
+      start: startOfHour(addHours(today, 1)),
+      end: endOfHour(addHours(today, 1)),
       color: colors.blue,
       draggable: true,
       resizable: {
