@@ -41,6 +41,16 @@ const colors: any = {
   }
 };
 
+const allEventTypes: any[] = [
+  {
+    eventTypeId: 0,
+    name: 'Meeting'
+  }, {
+    eventTypeId: 1,
+    name: 'Assignment'
+  }
+];
+
 const today = new Date();
 
 @Component({
@@ -55,6 +65,10 @@ export class MonthCalendarComponent implements OnInit {
   view = 'month';
 
   viewDate: Date = new Date();
+
+  aNumber: number;
+
+  eventTypes: any = allEventTypes;
 
   actions: CalendarEventAction[] = [
     {

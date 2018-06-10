@@ -16,3 +16,15 @@ h3 {
   .view-date-display{
     font-size: 1.5em;
   }
+  .date-time-table{
+    width: 90%;
+  }
+  .event-editor{
+    border: 2px solid #ddd;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+  }
+  .event-editor:last-child{
+    margin-bottom: 7em;
+  }

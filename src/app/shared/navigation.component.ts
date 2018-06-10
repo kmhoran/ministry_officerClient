@@ -16,8 +16,23 @@ export class NavigationComponent implements OnInit {
     pages: [
       {
         id: 'calendar',
-        name: 'calendar',
+        name: 'Calendar',
         url: '/calendar'
+      }
+    ]
+  }, {
+    id: 'membership',
+    name: 'Membership',
+    pages: [
+      {
+        id: 'user-membership',
+        name: 'Users',
+        url: '/membership/user'
+      },
+      {
+        id: 'officer-membership',
+        name: 'Officers',
+        url: '/membership/officer'
       }
     ]
   }

@@ -1,0 +1,34 @@
+<app-navigation domain="membership"
+                page="user-membership"></app-navigation>
+
+<div class="row user-row">
+  <div class="col-md-6 add-user-tool">
+  <div class="title">Add New Member</div>
+ <form class="form-group">
+    <input type="text"
+    class="form-control"
+    placeholder="first name"/>
+    <input type="text"
+    class="form-control"
+    placeholder="last name"/>
+   <input type="text"
+          class="form-control"
+          placeholder="email"/>
+  </form>
+</div>
+<!-- /.col -->
+<div class="col-md-6 user-details">
+  <div class="title">Active Members</div>
+  <div class="row user"
+       *ngFor="let user of users">
+       <div class="col-6-md">
+       <div class=user-name>{{user.name}}</div>
+       <div class="user-email">{{user.email}}</div>
+      </div>
+      <div class="col-md-6 remove-member-button">
+        <button type="button"
+                class="btn btn-danger"><span class="fas fa-user-alt-slash"></span> Remove Member</button>
+      </div>
+  </div>
+</div>
+</div>

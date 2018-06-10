@@ -15,7 +15,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { NavigationComponent } from './shared/navigation.component';
 import { MonthCalendarComponent } from './calendar/calendar-tool/month-calendar.component';
 import { DatePickerComponent } from './calendar/calendar-tool/date-picker.component';
-import { EditEventComponent } from './calendar/calendar-tool/edit-event.component';
+import { UserMembershipComponent } from './membership/user-membership.component';
+import { OfficerMembershipComponent } from './membership/officer-membership.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditEventComponent } from './calendar/calendar-tool/edit-event.componen
     NavigationComponent,
     MonthCalendarComponent,
     DatePickerComponent,
-    EditEventComponent,
+    UserMembershipComponent,
+    OfficerMembershipComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +38,11 @@ import { EditEventComponent } from './calendar/calendar-tool/edit-event.componen
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: 'calendar', component: CalendarComponent},
+      {path: 'membership/user', component: UserMembershipComponent},
+      {path: 'membership/officer', component: OfficerMembershipComponent},
       {path: '', redirectTo: 'calendar', pathMatch: 'full'},
       {path: '**', redirectTo: 'calendar', pathMatch: 'full'}
-    ])
+    ], {useHash: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
